@@ -1,4 +1,6 @@
-// src/components/AddHogForm.jsx
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 const AddHogForm = ({ addHog }) => {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
@@ -17,7 +19,7 @@ const AddHogForm = ({ addHog }) => {
       greased,
       highestMedal,
     };
-    addHog(newHog); // Call the function passed from parent to add the new hog
+    addHog(newHog); 
     // Reset the form fields
     setName('');
     setImage('');
@@ -41,6 +43,11 @@ const AddHogForm = ({ addHog }) => {
       <button type="submit">Add Hog</button>
     </form>
   );
+};
+
+// PropTypes validation
+AddHogForm.propTypes = {
+  addHog: PropTypes.func.isRequired, 
 };
 
 export default AddHogForm;

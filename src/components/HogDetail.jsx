@@ -1,4 +1,5 @@
-// src/components/HogDetail.jsx
+import PropTypes from 'prop-types';
+
 const HogDetail = ({ hog }) => {
   if (!hog) return <div>Select a hog to see details</div>;
 
@@ -12,6 +13,18 @@ const HogDetail = ({ hog }) => {
       <p>Highest Medal: {hog.highestMedal}</p>
     </div>
   );
+};
+
+// PropTypes validation
+HogDetail.propTypes = {
+  hog: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    specialty: PropTypes.string.isRequired,
+    weight: PropTypes.number.isRequired,
+    greased: PropTypes.bool.isRequired,
+    highestMedal: PropTypes.string.isRequired,
+  }).isRequired, 
 };
 
 export default HogDetail;

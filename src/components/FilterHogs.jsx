@@ -1,4 +1,6 @@
-// src/components/FilterHogs.jsx
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 const FilterHogs = ({ filterHogs }) => {
   const [isGreased, setIsGreased] = useState(false);
 
@@ -15,6 +17,11 @@ const FilterHogs = ({ filterHogs }) => {
       </label>
     </div>
   );
+};
+
+// PropTypes validation
+FilterHogs.propTypes = {
+  filterHogs: PropTypes.func.isRequired, 
 };
 
 export default FilterHogs;

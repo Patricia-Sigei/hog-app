@@ -1,4 +1,6 @@
 // src/components/SortHogs.jsx
+import PropTypes from 'prop-types';
+
 const SortHogs = ({ sortHogs }) => {
   return (
     <div>
@@ -7,6 +9,11 @@ const SortHogs = ({ sortHogs }) => {
       <button onClick={() => sortHogs('highestMedal')}>Sort by Highest Medal</button>
     </div>
   );
+};
+
+// PropTypes validation
+SortHogs.propTypes = {
+  sortHogs: PropTypes.func.isRequired, 
 };
 
 export default SortHogs;
