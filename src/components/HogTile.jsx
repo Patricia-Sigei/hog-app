@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types'; 
+import { Card, Image, Button } from 'semantic-ui-react';
 
 const HogTile = ({ hog }) => {
   return (
-    <div className="ui eight wide column">
-      <div className="ui card">
-        <div className="image">
-          <img src={hog.image} alt={hog.name} />
-        </div>
-        <div className="content">
-          <div className="header">{hog.name}</div>
-        </div>
-      </div>
-    </div>
+    <Card className="ui eight wide column">
+      <Image src={hog.image} alt={hog.name} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>{hog.name}</Card.Header>
+        <Card.Description>
+          Specialty: {hog.specialty} <br />
+          Weight: {hog.weight} lbs <br />
+          Highest Medal: {hog.highestMedal}
+        </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <Button basic color="blue">View Details</Button>
+      </Card.Content>
+    </Card>
   );
 };
 
@@ -19,7 +24,10 @@ const HogTile = ({ hog }) => {
 HogTile.propTypes = {
   hog: PropTypes.shape({
     image: PropTypes.string.isRequired, 
-    name: PropTypes.string.isRequired,   
+    name: PropTypes.string.isRequired,
+    specialty: PropTypes.string.isRequired, 
+    weight: PropTypes.number.isRequired, 
+    highestMedal: PropTypes.string.isRequired, 
   }).isRequired, 
 };
 
